@@ -64,7 +64,7 @@ Apache:
 `sudo a2enmod userdir` Käyttäjäkansioiden salliminen  
 `mkdir -p home/niinam/publicsites/hattu.example.com/` tai  
 `mkdir public_html` kotihakemistoon, omalle nimelle, sinne `micro index.html`  
-  `<!doctype html>
+  <!doctype html>
     <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -74,7 +74,7 @@ Apache:
     <body>
         <p>Olen testisivu</p>
     </body>
-    </html>`
+    </html>  
   Selaimesta "http://localhost/~user"  
   
  Palomuuri apachelle  
@@ -85,14 +85,14 @@ Apache:
   
 Name Based Virtual Host:  
 `sudoedit /etc/apache2/sites-available/hattu.example.com.conf`:   
-    `<VirtualHost *:80>
+    <VirtualHost *:80>
   ServerName hattu.example.com
   ServerAlias www.hattu.example.com
       DocumentRoot /home/niinam/publicsites/hattu.example.com
       <Directory /home/niinam/publicsites/hattu.example.com>
         Require all granted
      </Directory>
-     </VirtualHost>`   
+     </VirtualHost>    
 `sudo a2ensite hattu.example.conf` Ottaa käyttöön ko. conf-tiedoston  
 `sudo a2dissite hattu.example.conf` Poistaa käytöstä ko. conf-tiedoston  
 `sudo a2dissite 000-default.conf` Poistaa käytöstä default conf-tiedoston  
