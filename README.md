@@ -84,7 +84,11 @@ Apache:
     </html>  
   Selaimesta "http://localhost/~user"  
   
- Palomuuri apachelle  
+ Palomuuri Apachelle:  
+ `ssh root@ip-osoite` `sudo apt-get update` `sudo apt-get install ufw`  
+ `sudo ufw allow 22/tcp` Reikä palomuuriin  
+ `sudo ufw enable`  
+ 
  `sudo service apache2 stop` Serverin pysäytys  
   
  `curl localhost`  
@@ -150,11 +154,15 @@ Seuraavaksi lähdin luomaan tietokantaa:
 `./manage.py makemigrations` ja `./manage.py migrate` migraatioiden päivitys     
 `micro crm/admin.py` jolla tietokanta rekisteröidään adminille    
 `./manage.py runserver` käynnistää serverin, kirjauduin sisään "127.0.0.1:8000/admin". Lisäsin kaksi asiakasta.  
-Jotta asiakkaiden nimet saatiin näkymään customer listauksessa, muokattiin (huomaa välilyönti sensitiivisyys:  
+Jotta asiakkaiden nimet saatiin näkymään customer listauksessa, muokattiin (huomaa välilyönti sensitiivisyys, kuvassa väärin eli allekkain name ja def:  
   
 ![nimet2](https://github.com/user-attachments/assets/a15d64fb-1fda-459e-961a-fa7208e25b87)  
-
+  
 Komennot usealle käyttäjälle:  
-
+`micro hei` ,tiedostoon sisälle "#!/bin/bash" ja alle komennot, jotka haluat ajaa eli esim `whoami,hostname,pwd,date, echo "Hello There!"`  
+`chmod a+x hei` Käyttöoikeudet kaikille  
+`sudo cp hei /usr/local/bin/` tiedoston kopioiminen jotta se toimii kaikilla  
+`hei`  
+  
 SCP:
 `scp -r Kotisivut/ niina@iposoite:public_html`
