@@ -151,9 +151,9 @@ Seuraavaksi lähdin luomaan tietokantaa:
 
 ![crm](https://github.com/user-attachments/assets/519a88aa-0066-44c5-b2f5-b4ce3e919dc2) 
     
-`micro crm/models.py` tiedostoon lisättiin malli, jonka avulla django luo tietokannan  
+`micro crm/models.py` tiedostoon lisättiin malli, jonka avulla django luo tietokannan, "class Assistants" tai "class.Customer" eli vaihda oikea muuttuja.  
 `./manage.py makemigrations` ja `./manage.py migrate` migraatioiden päivitys     
-`micro crm/admin.py` jolla tietokanta rekisteröidään adminille    
+`micro crm/admin.py` jolla tietokanta rekisteröidään adminille, lisää tänne "register(models.Assistants tai models.Customer jne).      
 `./manage.py runserver` käynnistää serverin, kirjauduin sisään "127.0.0.1:8000/admin". Lisäsin kaksi asiakasta.  
 Jotta asiakkaiden nimet saatiin näkymään customer listauksessa, muokattiin (huomaa välilyönti sensitiivisyys, kuvassa väärin eli allekkain name ja def:  
   
