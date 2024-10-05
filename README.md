@@ -1,5 +1,4 @@
-# LinuxPalvelimet  
-Homework  
+# LinuxPalvelimet Homework  
 
 `sudo apt-get update` `sudo apt-get -y dist upgrade`  
 `sudo apt-get install`  
@@ -11,15 +10,15 @@ Homework
 `mkdir kansio/` Luo kansio  
 `mv vanhanimi uusinimi` Kansion uudelleen nimeäminen  
 `cp vanha uusi` Kansion tai tiedoston kopiointia  
-`cp -r alkuperäinen uusi` Kansion kopiointi uuteen sijaintiin?  
+`cp -r alkuperäinen uusi` Kansion kopiointi uuteen sijaintiin  
 `rm poistettava`  
 `rm -r kansio` Poistaa kansion ja alakansiot sisältöineen  
 `rmdir kansio` Poistaa kansion  
   
 Tulimuuri:  
 `sudo apt-get -y install ufw`  
-`sudo ufw allow 80/tcp` (aukko http:lle)  
-`sudo ufw allow 22/tcp` (aukko ssh:lle)  
+`sudo ufw allow 80/tcp`   
+`sudo ufw allow 22/tcp`  
 `sudo ufw enable`  
 `ufw status`  
   
@@ -31,7 +30,7 @@ APT-GET:
   `trash-list`  
   `trash-empty`  
 `sudo apt-get -y install bash-completion`  
-`sudo apt-get install pwgen` Password generator ja `pwgen -s 20 1 #`  
+`sudo apt-get install pwgen` Password generator ja `pwgen -s 20 1`  
 `sudo editor=micro` ja plugareita esim. `ctrl + E` ja `set colorscheme simple`  
   
 SSH:  
@@ -40,49 +39,50 @@ SSH:
 `sudo systemctl start ssh`  
 `sudo ufw allow ssh` `sudo ufw enable` `sudo ufw status`  
 `ssh käyttäjänimi@iposoite/localhost`   
-`exit`   
+`exit`  
+  
 Julkinen avain:  
 `ssh-keygen` enterx3  
 `ssh-copy-id tunnus@iposoite` eli esim `ssh-copy-id niinama01@localhost`    
 `sudoedit /etc/ssh/sshd_config` salasanakirjautuminen pois päältä, muokkaa tiedostoon "PasswordAuthentication No"  
-  
-`sudo adduser uusikäyttäjä` `sudo adduser uusikäyttäjä sudo` uusi käyttäjä sudo ryhmään  
+
+`sudo adduser uusikäyttäjä` `sudo adduser uusikäyttäjä sudo` uusi käyttäjä sudo ryhmään   
 Testaa, että kirjautuminen ssh:lla onnistuu.  
 `sudo usermod -- lock root` Lukitse root  
 `sudoedit /etc/ssh/sshd_config` muuta PermitRootLogin No  
-  
+   
 Oikeudet:  
 `sudo chmod ugo+rx kansio` antaa read+execute oikeudet kansiolle  
 `ls -l /home/käyttäjä` näyttää hakemiston oikeudet  
 `ls -la`  
 `chmod +x niina/` -> drwx--x--x eli kaikilla oikeus lukea, mutta sisältöä voi muokata vain käyttäjä itse  
-`chmod o+w /niina/kotisivut/` muilla (others) oikeus muokata eli writes
-  
-Lokit:
+`chmod o+w /niina/kotisivut/` muilla (others) oikeus muokata eli write  
+   
+Lokit:  
 `sudo tail -f /var/log/apache2/access.log`  
-`sudo tail -1 /var/log/apache2/access.log`  
-`sudo tail /var/log/aoache2/error.log`  
+`sudo tail -f /var/log/aoache2/error.log`  
   
 Apache:  
 `sudo apt-get -y install apache2`  
 `sudo systemctl enable --now apache2` Apache käynnistyy automaattisesti konetta avatessa  
 `curl localhost` tai http://localhost/  
 `sudo systemctl start apache2` Uudelleenkäynnistys  
-`echo "See you at niinamatela.me"|sudo tee /var/html/index.html`  
+`echo "See you at niinamatela.me"|sudo tee /var/html/index.html`   
 `sudo a2enmod userdir` Käyttäjäkansioiden salliminen, käynnistä apache uudestaan   
 `mkdir -p home/niinam/publicsites/hattu.example.com/` tai  
 `mkdir public_html` kotihakemistoon, omalle nimelle, sinne `micro index.html`  
-  <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Testisivu</title>
-    </head>
-    <body>
-        <p>Olen testisivu</p>
-    </body>
-    </html>  
+        <!doctype html>
+          <html lang="en">
+          <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Testisivu</title>
+          </head>
+          <body>
+              <p>Olen testisivu</p>
+          </body>
+          </html>  
+      
   Selaimesta "http://localhost/~user"  
   
  Palomuuri Apachelle:  
@@ -94,7 +94,7 @@ Apache:
   
  `curl localhost`  
  `sudoedit /etc/hosts` tiedostoon lisätään domainnimet ja ohjaus localhostiin  
-  
+   
 Name Based Virtual Host:  
 `echo "Default"|sudo tee /var/www.html/index.html` , testaa localhostista muuttuiko sivu  
 `sudo micro /etc/apache2/sites-available/hattu.example.com.conf`:   
@@ -120,7 +120,7 @@ Name Based Virtual Host:
 
 Sivun muokkaaminen normaalina käyttäjänä:  
 `mkdir -p /home/niinam/publicsites/hattu.example.com/`  
-`exho hattu > /home/niinam/publicsites/hattu.example.com/index.html`  
+`exho hattu > /home/niinam/publicsites/hattu.example.com/index.html`    
 `sudoedit /etc/hosts` Muokkaa hostit: "127.0.0.1 hattu.example.com, 127.0.0.1 www.hattu.example.com"  
 
 Django:  
@@ -151,8 +151,8 @@ Seuraavaksi lähdin luomaan tietokantaa:
 
 ![crm](https://github.com/user-attachments/assets/519a88aa-0066-44c5-b2f5-b4ce3e919dc2) 
     
-`micro crm/models.py` tiedostoon lisättiin malli, jonka avulla django luo tietokannan, "class Assistants" tai "class.Customer" eli vaihda oikea muuttuja.  
-`./manage.py makemigrations` ja `./manage.py migrate` migraatioiden päivitys     
+`micro crm/models.py` tiedostoon lisättiin malli, jonka avulla django luo tietokannan, "class Assistants" tai "class.Customer" eli vaihda oikea muuttuja. `/home/niinama01/publicwsgi/labraharjoitus/crm/models.py`  
+`./manage.py makemigrations` ja `./manage.py migrate` migraatioiden päivitys    
 `micro crm/admin.py` jolla tietokanta rekisteröidään adminille, lisää tänne "register(models.Assistants tai models.Customer jne).      
 `./manage.py runserver` käynnistää serverin, kirjauduin sisään "127.0.0.1:8000/admin". Lisäsin kaksi asiakasta.  
 Jotta asiakkaiden nimet saatiin näkymään customer listauksessa, muokattiin (huomaa välilyönti sensitiivisyys, kuvassa väärin eli allekkain name ja def:  
