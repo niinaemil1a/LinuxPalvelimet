@@ -43,7 +43,7 @@ SSH:
 `exit`   
 Julkinen avain:  
 `ssh-keygen` enterx3  
-`ssh-copy-id tunnus@iposoite`   
+`ssh-copy-id tunnus@iposoite` eli esim `ssh-copy-id niinama01@localhost`    
 `sudoedit /etc/ssh/sshd_config` salasanakirjautuminen pois päältä, muokkaa tiedostoon "PasswordAuthentication No"  
   
 `sudo adduser uusikäyttäjä` `sudo adduser uusikäyttäjä sudo` uusi käyttäjä sudo ryhmään  
@@ -56,6 +56,7 @@ Oikeudet:
 `ls -l /home/käyttäjä` näyttää hakemiston oikeudet  
 `ls -la`  
 `chmod +x niina/` -> drwx--x--x eli kaikilla oikeus lukea, mutta sisältöä voi muokata vain käyttäjä itse  
+`chmod o+w /niina/kotisivut/` muilla (others) oikeus muokata eli writes
   
 Lokit:
 `sudo tail -f /var/log/apache2/access.log`  
