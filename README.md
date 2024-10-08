@@ -1,6 +1,6 @@
 # LinuxPalvelimet Homework  
 
-`sudo apt-get update` `sudo apt-get -y dist upgrade`  
+`sudo apt-get update` `sudo apt-get -y dist-upgrade`  
 `sudo apt-get install`  
 `pwd` Print working directory  
 `cd` ja `cd ..` Liikkuminen hakemistossa  
